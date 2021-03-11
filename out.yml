@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Quicksight Dashboard embedding Lambda
+Resources:
+  function:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: main
+      Runtime: go1.x
+      CodeUri: s3://lambda-artifacts-8e806bcb5ee6507d/e92b68b3664c2672e57ce4eaaf7f700f
+      Description: Call the AWS Lambda API
+      Timeout: 5
+      Policies:
+      - AWSLambdaBasicExecutionRole
+      - AWSLambdaReadOnlyAccess
+      - AWSXrayWriteOnlyAccess
+      Tracing: Active
